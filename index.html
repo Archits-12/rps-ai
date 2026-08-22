@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RPS AI — Hand Gesture Mind Reader</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="app">
+<header>
+  <div><div class="eyebrow">CASE STUDY 01</div><h1>RPS <span>AI</span></h1><p>Hand Gesture Mind Reader</p><div class="student-info"><strong>ARCHIT SINGHANIA</strong><span>USN: 24BTTSN001</span></div></div>
+  <button id="reset">↻ Reset</button>
+</header>
+
+<section class="hero">
+  <div class="intro">
+    <div class="pill">● LIVE AI</div>
+    <h2>Can the AI<br><em>read your move?</em></h2>
+    <p>Show Rock ✊, Paper ✋ or Scissors ✌️ to your camera. The AI learns your move history and predicts your next choice.</p>
+    <div class="buttons"><button id="start" class="primary">Enable Camera</button><button id="pause" disabled>Pause</button></div>
+    <small id="status">Camera is off.</small>
+  </div>
+
+  <div class="camera card">
+    <div class="camtop"><b>HAND TRACKING</b><span id="fps">-- FPS</span></div>
+    <div class="video">
+      <video id="video" autoplay playsinline muted></video>
+      <canvas id="canvas"></canvas>
+      <div id="overlay"><div class="ring"></div><b>Enable camera</b><small>Allow webcam access to play</small></div>
+    </div>
+    <div class="detected"><span>Detected gesture</span><b id="gesture">Waiting…</b></div>
+  </div>
+</section>
+
+<section class="grid">
+  <div class="card battle">
+    <div class="title"><span>ROUND</span><b id="round">01</b></div>
+    <div class="fighters">
+      <div><div id="player" class="move">?</div><b>YOU</b><small id="playerLabel">Waiting</small></div>
+      <strong class="vs">VS</strong>
+      <div><div id="ai" class="move ai">?</div><b>AI</b><small id="aiLabel">Adaptive</small></div>
+    </div>
+    <div id="result" class="result">Show your hand to start a round</div>
+  </div>
+
+  <div class="card prediction">
+    <div class="title"><span>AI PREDICTION</span><b id="confidence">0%</b></div>
+    <div class="predrow"><div id="predicon">?</div><div><small>Next move prediction</small><h3 id="prediction">Not enough data</h3></div></div>
+    <div class="meter"><div id="bar"></div></div>
+    <p id="reason">The AI will learn from your previous moves.</p>
+  </div>
+</section>
+
+<section class="stats">
+  <div><span>WINS</span><b id="wins">0</b></div><div><span>LOSSES</span><b id="losses">0</b></div>
+  <div><span>DRAWS</span><b id="draws">0</b></div><div><span>WIN RATE</span><b id="rate">0%</b></div>
+  <div><span>STREAK</span><b id="streak">0</b></div>
+</section>
+
+<section class="card history">
+  <div class="title"><span>MOVE HISTORY</span><b id="count">0 rounds</b></div>
+  <div id="history">Your completed rounds will appear here.</div>
+</section>
+
+<section class="card how">
+  <div><div class="eyebrow">HOW IT WORKS</div><h2>Three layers of intelligence.</h2></div>
+  <div class="steps">
+    <div><b>01</b><span><strong>MediaPipe</strong> tracks hand landmarks from your webcam.</span></div>
+    <div><b>02</b><span><strong>Gesture logic</strong> converts finger positions into RPS moves.</span></div>
+    <div><b>03</b><span><strong>Adaptive AI</strong> studies your history and selects a counter-move.</span></div>
+  </div>
+</section>
+<footer>RPS AI • Case Study 01 • ARCHIT SINGHANIA • 24BTTSN001</footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
